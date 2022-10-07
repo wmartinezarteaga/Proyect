@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Proyect</string>
+    <string name="BotomMn">Menu</string>
+    <string name="tex1">Bienvenidos</string>
+    <string name="BotomEV">Evento</string>
+    <string name="BotomSG">SEGURIDAD</string>
+    <string name="BotomLG">LOGS</string>
+    <string name="BotomIn">INICIO</string>
+    <string name="tex2">MENU</string>
+    <string name="tex3">Wilson MARTINEZ Y Jose Cogollo</string>
+    <string name="tex4">Fecha Inicio</string>
+    <string name="tex5">Causa</string>
+    <string name="tex6">Server</string>
+    <string name="tex7">Solucion</string>
+    <string name="tex8">Fecha Fin</string>
+    <string name="tex9">Indisponibilidad</string>
+    <string name="tex10">13-08-2021 13:00</string>
+    <string name="tex11">Falla Electrica</string>
+    <string name="tex12">Servidor AA</string>
+    <string name="tex13">Planta Electrica</string>
+    <string name="tex14">13-08-2021 14:30</string>
+    <string name="tex15">1 H</string>
+    <string name="tex16">15-09-2021 18:00</string>
+    <string name="tex17">Falla de Red</string>
+    <string name="tex18">Servidor Center</string>
+    <string name="tex19">Reinicio del Router</string>
+    <string name="tex20">16-09-2021 11:20</string>
+    <string name="tex21">17 H</string>
+</resources>
