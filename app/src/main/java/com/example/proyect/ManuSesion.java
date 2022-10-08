@@ -90,10 +90,10 @@ public class ManuSesion extends AppCompatActivity {
         protected void onPostExecute(String s) {
             progress.setVisibility(View.INVISIBLE);
            // searhFileAccedDefined();
-            Sesions  sesions = new Sesions("2022","Jose","1309","Test","Definido");
-            Sesions  sesions1 = new Sesions("2022","Wilson","1309","Test","Definido");
-            Sesions  sesions2 = new Sesions("2022","Andres","1309","Test","Definido");
-            Sesions   sesions3 = new Sesions("2022","Luis","1309","Test","Definido");
+            Sesions  sesions = new Sesions("SERVIDOR \nunicor","fecha : 2022/09/09","datos relacionados","Test","EVENTO \nfailed");
+            Sesions  sesions1 = new Sesions("SERVIDOR \nMovistar","fecha : 2022/09/09","datos relacionados","Test","EVENTO \nsuccessful");
+            Sesions  sesions2 = new Sesions("SERVIDOR \nClaro","fecha : 2022/09/09","datos relacionados","Test","EVENTO \nsuccessful");
+            Sesions   sesions3 = new Sesions("SERVIDOR \nTigo","fecha : 2022/09/09","datos relacionados","Test","EVENTO \nfailed");
             listado2.add(sesions);
             listado2.add(sesions1);
             listado2.add(sesions2);

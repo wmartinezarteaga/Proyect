@@ -25,9 +25,15 @@ public class Menu extends AppCompatActivity {
         Intent Evento = new Intent(this, MenuEventos.class);
         startActivity(Evento);
     }
-    //Boton que conecta la pantalla menu con la pantalla Evento
+
     public void Sesion(View View){
        Intent Evento = new Intent(this, ManuSesion.class);
          startActivity(Evento);
+    }
+
+
+    public void Log(View View){
+        Intent Evento = new Intent(this, MenuLog.class);
+        startActivity(Evento);
     }
 }
