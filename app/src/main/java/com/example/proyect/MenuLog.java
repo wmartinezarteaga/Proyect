@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.example.proyect.data.Adapter;
+import com.example.proyect.Controller.Adapter;
 
 import java.util.ArrayList;
 import java.util.List;
