@@ -4,28 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E9F6B9B9"
     tools:context=".ManuSesion">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="410dp"
-        android:layout_height="437dp"
+        android:id="@+id/recyclerViewSesion"
+        android:layout_width="325dp"
+        android:layout_height="204dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.207" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewSesion"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerViewSesion"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewSesion"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewSesion" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -40,4 +41,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:id="@+id/AsiaArriba"
+        android:layout_width="181dp"
+        android:layout_height="46dp"
+        android:text="Delice la pantalla"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewSesion"
+        app:layout_constraintVertical_bias="0.186" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

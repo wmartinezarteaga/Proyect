@@ -8,14 +8,15 @@
     android:orientation="vertical"
     app:cardCornerRadius="3dp"
     app:cardElevation="30dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    >
 
 
     <RelativeLayout
         android:id="@+id/cardModel"
-        android:layout_width="wrap_content"
-        android:layout_height="248dp"
-        android:background="#FFFFFF"
+        android:layout_width="632dp"
+        android:layout_height="wrap_content"
+        android:background="#AED1F3E8"
         android:padding="10dp">
 
         <TextView

@@ -32,6 +32,7 @@ public class Adapter extends RecyclerView.Adapter<SesionViewHolder> {
         return new SesionViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull SesionViewHolder holder, int position) {
         String date = listSesion.get(position).getDate();
@@ -51,10 +52,11 @@ public class Adapter extends RecyclerView.Adapter<SesionViewHolder> {
     public int getItemCount() {
         return listSesion.size();
     }
+
 }
 
 
- class  SesionViewHolder extends RecyclerView.ViewHolder {
+ class  SesionViewHolder extends RecyclerView.ViewHolder{
  TextView txtdate,txtid,textname,textclient,textacces;
 //jjhjh
     public SesionViewHolder(View itemView) {

@@ -29,6 +29,7 @@ public class ManuSesion extends AppCompatActivity {
     List<String> listIps = new ArrayList<String>();
     List<String> listResponse = new ArrayList<String>();
     List<String> listIpToset = new ArrayList<String>();
+    List<String> listSearhData = new ArrayList<String>();
     ArrayList<models.Sesions> listado2 = new ArrayList<Sesions>();
     private ProgressBar progress;
     private RecyclerView recicle;
@@ -44,27 +45,44 @@ public class ManuSesion extends AppCompatActivity {
         setContentView(R.layout.activity_manu_sesion);
 
         progress = findViewById(R.id.progressBar);
-        recicle = findViewById(R.id.recyclerView);
+        recicle = findViewById(R.id.recyclerViewSesion);
         new Task1().execute(listadoFile.toString().trim());
+
     }
 
-    public void  showData(List<String> list){
-        for (int i = 0; i < list.toArray().length; i++) {
-            System.out.println(list.get(i));
+    public void  searhDataSpecify(String ip){
+        listSearhData.clear();
+        for (int i = 0; i < listadoFile.toArray().length; i++) {
+            if(listadoFile.get(i).contains(ip)){
+                listSearhData.add(listadoFile.get(i));
+            }
         }
+        System.out.println("Para el set de ip "+ip );
+        System.out.println("TOTAL RESPUESTAS "+listSearhData.toArray().length );
     }
 
   public void   initReciclecVIew(){
         if(listIpToset.toArray().length >0) {
             for (int i = 0; i < listIpToset.toArray().length; i++) {
-                Sesions  sesions = new Sesions("IP DEL LOG \n",listIpToset.get(i),"","","");
+                Sesions  sesions = new Sesions("IP DEL LOG \n",listIpToset.get(i),"","Cantidad  " +count(listIpToset.get(i)),"");
                 listado2.add(sesions);
             }
         }
 
       adapter = new Adapter(getBaseContext(), listado2);
       recicle.setAdapter(adapter);
+      recicle.setHasFixedSize(true);
       recicle.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+    }
+
+    public int count(String ipSearh){
+        int count =0;
+        for (int i = 0; i < listIps.toArray().length; i++) {
+            if (listIps.get(i).contains(ipSearh)) {
+                count++;
+            }
+        }
+        return count;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -80,16 +98,16 @@ public class ManuSesion extends AppCompatActivity {
                     listIps.add(temData[0]);// add ip
                     listResponse.add(temData[1]);// add response
                 }
-
             } ;
 
             // seteo de la lista para solo los ip en especifico
             listIpToset.addAll(listIps.stream().collect(Collectors.toSet()));
 
+            System.out.println("Total de lineas" + listadoFile.toArray().length);
             System.out.println("Total de ip " + listIps.toArray().length);
             System.out.println("Total de toset ip " + listIpToset.toArray().length);
             System.out.println("Total de Response" + listResponse.toArray().length);
-            System.out.println("Total de lineas" + listadoFile.toArray().length);
+
         }
     }
 
@@ -110,6 +128,8 @@ public class ManuSesion extends AppCompatActivity {
 
             br.close();
             fileLoad.close();
+            Toast toast = Toast.makeText(this.getBaseContext(),"Datos cargados exitosamente!!", Toast.LENGTH_LONG);
+            toast.show();
         } catch (IOException e) {
             Toast toast = Toast.makeText(this.getBaseContext(),e.getMessage(), Toast.LENGTH_LONG);
             toast.show();
@@ -129,10 +149,10 @@ public class ManuSesion extends AppCompatActivity {
             searhFileAccedDefined();//carga la data del seguridadLog.txt
             addAllRequiredData();//carga los arreglos con la dta
             initReciclecVIew();//inicializa los reciclew view
-            //System.out.println("IPES");
-           // showData(listIps);
-           // System.out.println("FECHAS");
-           // showData(listResponse);
+            for (int i=0;i<listIpToset.toArray().length; i++){
+                new Task2().execute(String.valueOf(i));
+            }
+
         }
 
 
@@ -148,6 +168,30 @@ public class ManuSesion extends AppCompatActivity {
             return strings[0];
         }
     }
+
+    class Task2 extends AsyncTask<String ,Void, Integer> {
+
+        @Override
+        protected void onPreExecute() {
+
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.N)
+        @Override
+        protected void onPostExecute(Integer i) {searhDataSpecify(listIpToset.get(i));}
+
+        @Override
+        protected Integer doInBackground(String... strings) {
+            try{
+                Thread.sleep(2000);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            return Integer.valueOf(strings[0]);
+        }
+    }
 }
+
+
 
 
