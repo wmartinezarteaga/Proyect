@@ -1,27 +1,27 @@
-package com.example.proyect;
+package com.example.proyect.app.ui.views;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.example.proyect.Controller.Adapter;
+import com.example.proyect.app.ui.models.Eventos;
+import com.example.proyect.R;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuLog extends AppCompatActivity {
     List<String> listado = new ArrayList<String>();
-    ArrayList<models.Sesions> listado2 = new ArrayList<models.Sesions>();
+    ArrayList<Eventos> listFile = new ArrayList<Eventos>();
     private ProgressBar progress;
     private RecyclerView recicle;
-    private Adapter adapter;
+   // private Adapter adapter;
     private String texto;
-    models.Sesions sesions;
+    Eventos eventos;
     private boolean tem;
 
 
@@ -29,7 +29,7 @@ public class MenuLog extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_log);
-        progress = findViewById(R.id.progressBarLog);
+        progress = findViewById(R.id.progressBarseguridad);
         recicle = findViewById(R.id.recyclerViewLog);
 
 
@@ -46,18 +46,17 @@ public class MenuLog extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             progress.setVisibility(View.INVISIBLE);
-            // searhFileAccedDefined();
-            models.Sesions sesions = new models.Sesions("SERVIDOR \nunicor","fecha : 2022/09/09","User: Wilson","Test","EVENTO \nfailed");
-            models.Sesions sesions1 = new models.Sesions("SERVIDOR \nMovistar","fecha : 2022/09/09","User: Jose","Test","EVENTO \nsuccessful");
-            models.Sesions sesions2 = new models.Sesions("SERVIDOR \nClaro","fecha : 2022/09/09","User: Jose","Test","EVENTO \nsuccessful");
-            models.Sesions sesions3 = new models.Sesions("SERVIDOR \nTigo","fecha : 2022/09/09","User: Wilson","Test","EVENTO \nfailed");
-            listado2.add(sesions);
-            listado2.add(sesions1);
-            listado2.add(sesions2);
-            listado2.add(sesions3);
-            adapter = new Adapter(getBaseContext(), listado2);
-            recicle.setAdapter(adapter);
-            recicle.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+          // Eventos eventos = new Eventos()
+          // Eventos eventos1 = new Eventos();
+          // Eventos eventos2 = new Eventos();
+          // Eventos eventos3 = new Eventos();
+         // listFile.add(eventos);
+         // listFile.add(eventos1);
+         // listFile.add(eventos2);
+         // listFile.add(eventos3);
+         //   adapter = new Adapter(getBaseContext(), listFile);
+         //   recicle.setAdapter(adapter);
+         //   recicle.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
         }
         @Override

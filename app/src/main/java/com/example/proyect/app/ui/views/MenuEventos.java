@@ -1,7 +1,9 @@
-package com.example.proyect;
+package com.example.proyect.app.ui.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.proyect.R;
 
 public class MenuEventos extends AppCompatActivity {
 

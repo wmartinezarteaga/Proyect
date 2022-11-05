@@ -5,18 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E9F6B9B9"
-    tools:context=".Menu">
+    tools:context=".app.ui.views.Menu">
 
 
-    l
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/txtmenu"
+        android:layout_width="204dp"
+        android:layout_height="66dp"
         android:text="@string/tex2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintBottom_toTopOf="@+id/cardView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +34,8 @@
         app:layout_constraintVertical_bias="0.558" />
 
     <LinearLayout
-        android:layout_width="715dp"
-        android:layout_height="210dp"
+        android:layout_width="835dp"
+        android:layout_height="204dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E9F6B9B9"
-    tools:context=".MenuEventos">
+    tools:context=".app.ui.views.MenuEventos">
 
     <TableLayout
         android:layout_width="627dp"
