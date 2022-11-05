@@ -1,4 +1,4 @@
-package com.example.proyect;
+package com.example.proyect.app.ui.views;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.proyect.Controller.Adapter;
+import com.example.proyect.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import models.Sesions;
+import com.example.proyect.app.ui.Controller.AdapterSeguridad;
+import com.example.proyect.app.ui.models.Eventos;
+import com.example.proyect.app.ui.models.Seguridad;
 
 public class ManuSesion extends AppCompatActivity {
     List<String> listadoFile = new ArrayList<String>();
@@ -30,12 +32,12 @@ public class ManuSesion extends AppCompatActivity {
     List<String> listResponse = new ArrayList<String>();
     List<String> listIpToset = new ArrayList<String>();
     List<String> listSearhData = new ArrayList<String>();
-    ArrayList<models.Sesions> listado2 = new ArrayList<Sesions>();
+    ArrayList<Seguridad> listCardSeg = new ArrayList<Seguridad>();
     private ProgressBar progress;
     private RecyclerView recicle;
-    private Adapter adapter;
+    private AdapterSeguridad adapterSeguridad;
     private String texto;
-    Sesions sesions;
+    Eventos eventos;
     private boolean tem;
 
 
@@ -52,6 +54,7 @@ public class ManuSesion extends AppCompatActivity {
 
     public void  searhDataSpecify(String ip){
         listSearhData.clear();
+
         for (int i = 0; i < listadoFile.toArray().length; i++) {
             if(listadoFile.get(i).contains(ip)){
                 listSearhData.add(listadoFile.get(i));
@@ -62,15 +65,16 @@ public class ManuSesion extends AppCompatActivity {
     }
 
   public void   initReciclecVIew(){
+      listCardSeg.clear();
         if(listIpToset.toArray().length >0) {
             for (int i = 0; i < listIpToset.toArray().length; i++) {
-                Sesions  sesions = new Sesions("IP DEL LOG \n",listIpToset.get(i),"","Cantidad  " +count(listIpToset.get(i)),"");
-                listado2.add(sesions);
+           Seguridad seguridad = new Seguridad( listIpToset.get(i),"Registro N: "+(1+i),String.valueOf(count(listIpToset.get(i))));
+                listCardSeg.add(seguridad);
             }
         }
 
-      adapter = new Adapter(getBaseContext(), listado2);
-      recicle.setAdapter(adapter);
+      adapterSeguridad = new AdapterSeguridad(getBaseContext(), listCardSeg);
+      recicle.setAdapter(adapterSeguridad);
       recicle.setHasFixedSize(true);
       recicle.setLayoutManager(new LinearLayoutManager(getBaseContext()));
     }
