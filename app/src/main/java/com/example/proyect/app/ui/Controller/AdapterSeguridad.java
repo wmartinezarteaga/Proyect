@@ -10,8 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyect.R;
-import com.example.proyect.app.ui.models.Eventos;
-import com.example.proyect.app.ui.models.Seguridad;
+import com.example.proyect.core.DataBase.models.Seguridad;
 
 import java.util.ArrayList;
 

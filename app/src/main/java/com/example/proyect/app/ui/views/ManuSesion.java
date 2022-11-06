@@ -23,8 +23,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.proyect.app.ui.Controller.AdapterSeguridad;
-import com.example.proyect.app.ui.models.Eventos;
-import com.example.proyect.app.ui.models.Seguridad;
+import com.example.proyect.core.DataBase.models.Eventos;
+import com.example.proyect.core.DataBase.models.Seguridad;
 
 public class ManuSesion extends AppCompatActivity {
     List<String> listadoFile = new ArrayList<String>();

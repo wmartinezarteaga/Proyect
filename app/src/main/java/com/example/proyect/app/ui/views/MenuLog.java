@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.example.proyect.app.ui.models.Eventos;
+import com.example.proyect.core.DataBase.models.Eventos;
 import com.example.proyect.R;
 
 

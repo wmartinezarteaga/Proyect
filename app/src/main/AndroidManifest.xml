@@ -26,7 +26,7 @@
             android:name=".app.ui.views.Menu"
             android:exported="false" />
         <activity
-            android:name=".app.ui.views.MainActivity"
+            android:name=".app.ui.context.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
