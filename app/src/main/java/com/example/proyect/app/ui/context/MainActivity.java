@@ -1,5 +1,5 @@
-package com.example.proyect.app.ui.context;
 
+package com.example.proyect.app.ui.context;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
