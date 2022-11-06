@@ -44,7 +44,7 @@ public class AdapterGeneralInformation extends RecyclerView.Adapter<EventosViewH
 }
 class EventosViewHolder extends RecyclerView.ViewHolder {
     TextView txtnameCard, txtIp, textCantidad;
-
+//m nbvmnb
     public EventosViewHolder(View itemView) {
 
         super(itemView);
