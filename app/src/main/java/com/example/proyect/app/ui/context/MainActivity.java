@@ -1,5 +1,5 @@
-package com.example.proyect.app.ui.context;
 
+package com.example.proyect.app.ui.context;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.example.proyect.R;
 import com.example.proyect.app.ui.views.Menu;
-import com.example.proyect.core.DataBase.DataBase;
+import com.example.proyect.core.DataBase.DataBaseHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,11 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
     //boton para enlasar el inicio con el menu
     public void Men(View View){
-        DataBase baseDeDatos = new DataBase(MainActivity.this);
+        DataBaseHelper baseDeDatos = new DataBaseHelper(MainActivity.this);
         SQLiteDatabase sqLiteDatabase = baseDeDatos.getReadableDatabase();
-
-       // sqLiteDatabase.getVersion();
-        Intent Men = new Intent(this, Menu.class);
-        startActivity(Men);
+         boolean  isbase =   sqLiteDatabase.isOpen();
+            if(isbase) {
+                Intent Men = new Intent(this, Menu.class);
+                startActivity(Men);
+            }
     }
 }

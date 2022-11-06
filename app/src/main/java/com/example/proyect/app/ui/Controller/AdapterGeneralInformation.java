@@ -10,16 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyect.R;
-import com.example.proyect.core.DataBase.models.Eventos;
+import com.example.proyect.app.ui.models.Logs;
 
 import java.util.ArrayList;
 
-public class AdapterGeneralInformation extends RecyclerView.Adapter<EventosViewHolder> {
-    ArrayList<Eventos> listCardevent;
+public class AdapterGeneralInformation extends RecyclerView.Adapter<LogsViewHolder> {
+    ArrayList<Logs> listCardevent;
     LayoutInflater inflater;
     View view;
 
-    public AdapterGeneralInformation(Context context, ArrayList<Eventos> list) {
+    public AdapterGeneralInformation(Context context, ArrayList<Logs> list) {
 
         inflater = LayoutInflater.from(context);
         this.listCardevent = list;
@@ -28,31 +28,42 @@ public class AdapterGeneralInformation extends RecyclerView.Adapter<EventosViewH
 
     @NonNull
     @Override
-    public EventosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public LogsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        view = inflater.inflate(R.layout.list_logs, parent,false);
+        return new LogsViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventosViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LogsViewHolder holder, int position) {
+        String ip = listCardevent.get(position).getIp();
+       String date = listCardevent.get(position).getDate();
+       String serial = listCardevent.get(position).getSerial();
+        String response = listCardevent.get(position).getResponse();
+        String number = listCardevent.get(position).getNumCard();
+       holder.textDate.setText(date);
+       holder.txtIp.setText(ip);
+       holder.textSerial.setText(serial);
+        holder.txtresposne.setText(response);
+        holder.textNumber.setText(number);
 
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
-    }
+    public int getItemCount() {return listCardevent.toArray().length;}
 }
-class EventosViewHolder extends RecyclerView.ViewHolder {
-    TextView txtnameCard, txtIp, textCantidad;
+
+
+class LogsViewHolder extends RecyclerView.ViewHolder {
+    TextView txtresposne, txtIp, textDate, textSerial, textNumber;
 //m nbvmnb
-    public EventosViewHolder(View itemView) {
+    public LogsViewHolder(View itemView) {
 
         super(itemView);
 
-        txtnameCard = itemView.findViewById(R.id.textnameCard);
-        txtIp = itemView.findViewById(R.id.textIp);
-        textCantidad = itemView.findViewById(R.id.textCantidad);
-
-
+     txtresposne = itemView.findViewById(R.id.textresponlog);
+     txtIp = itemView.findViewById(R.id.textiplog);
+     textDate = itemView.findViewById(R.id.txtfechalog);
+         textSerial = itemView.findViewById(R.id.txtseriallog);
+        textNumber = itemView.findViewById(R.id.textnumlog);
     }
 }
