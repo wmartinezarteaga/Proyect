@@ -4,8 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.proyect.core.DataBase.DataBaseHelper;
+import com.example.proyect.core.DataBase.models.Eventos;
 
 import java.sql.SQLException;
 
@@ -30,24 +33,38 @@ public class DBManager {
         dbHelper.close();
     }
 
-
     public void insert(
-            String descrip,
-            String causa,
-            String service,
-            String initDate,
-            String finishDate,
-            String indisponibilidad
-
+    Eventos evt
     ) {
+
+
+        Integer _id = evt.getId();
+        String descrip= evt.getDescripción();
+        String causa= evt.getCausa();
+        String service= evt.getServicioAfectado();
+        String initDate= evt.getFechaIni();
+        String finishDate= evt.getFechaFin();
+        String indisponibilidad= evt.getIndisponibildad();
+
         ContentValues contentValue = new ContentValues();
+        contentValue.put(DataBaseHelper._ID, _id);
         contentValue.put(DataBaseHelper.DESC, descrip);
         contentValue.put(DataBaseHelper.CAUSE, causa);
         contentValue.put(DataBaseHelper.SERVICE, service);
         contentValue.put(DataBaseHelper.DATETIMEINIT, initDate);
         contentValue.put(DataBaseHelper.DATETIMEFINISH, finishDate);
         contentValue.put(DataBaseHelper.AVAILABLE, indisponibilidad);
-        database.insert(DataBaseHelper.TABLE_NAME, null, contentValue);
+      long si =  database.insert(DataBaseHelper.TABLE_NAME, null, contentValue);
+      if(si >-1){
+
+          Log.e("GENIAL: " ,  "Inserto exitosamente");
+          Toast toast = Toast.makeText(context.getApplicationContext(), "Registro exitoso", Toast.LENGTH_LONG);
+          toast.show();
+      }else if (si == -1){
+          Log.e("UPS: " ,  "Error al insertar");
+          Toast toast = Toast.makeText(context.getApplicationContext(), "Error al insertar", Toast.LENGTH_LONG);
+          toast.show();
+      }
     }
 
     public Cursor fetch() {
@@ -68,14 +85,18 @@ public class DBManager {
     }
 
     public int update(
-            long _id,
-            String descrip,
-            String causa,
-            String service,
-            String initDate,
-            String finishDate,
-            String indisponibilidad
+            Eventos evt,Integer id
     ) {
+
+        String descrip= evt.getDescripción();
+        String causa= evt.getCausa();
+        String service= evt.getServicioAfectado();
+        String initDate= evt.getFechaIni();
+        String finishDate= evt.getFechaFin();
+        String indisponibilidad= evt.getIndisponibildad();
+
+
+
         ContentValues contentValues = new ContentValues();
         contentValues.put(DataBaseHelper.DESC, descrip);
         contentValues.put(DataBaseHelper.CAUSE, causa);
@@ -83,7 +104,8 @@ public class DBManager {
         contentValues.put(DataBaseHelper.DATETIMEINIT, initDate);
         contentValues.put(DataBaseHelper.DATETIMEFINISH, finishDate);
         contentValues.put(DataBaseHelper.AVAILABLE, indisponibilidad);
-        int i = database.update(DataBaseHelper.TABLE_NAME, contentValues, DataBaseHelper._ID + " = " + _id, null);
+        int i = database.update(DataBaseHelper.TABLE_NAME, contentValues, DataBaseHelper._ID + " = " + id, null);
+
         return i;
     }
 

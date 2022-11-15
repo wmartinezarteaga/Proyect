@@ -22,11 +22,16 @@ public class MainActivity extends AppCompatActivity {
     //boton para enlasar el inicio con el menu
     public void Men(View View){
         DataBaseHelper baseDeDatos = new DataBaseHelper(MainActivity.this);
+
         SQLiteDatabase sqLiteDatabase = baseDeDatos.getReadableDatabase();
-         boolean  isbase =   sqLiteDatabase.isOpen();
-            if(isbase) {
+        SQLiteDatabase sqLiteDatabase2 = baseDeDatos.getWritableDatabase();
+            if(sqLiteDatabase != null) {
+                System.out.println("CREADA BASE DE DATTOS");
+                System.out.println("NOMBRE "+baseDeDatos.getDatabaseName());
                 Intent Men = new Intent(this, Menu.class);
                 startActivity(Men);
+            }else{
+                System.out.println("ERROR AL CREAR");
             }
     }
 }

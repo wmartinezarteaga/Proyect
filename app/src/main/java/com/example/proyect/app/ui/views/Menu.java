@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.proyect.R;
 import com.example.proyect.app.ui.context.MainActivity;
+import com.example.proyect.app.ui.views.evento.NewEvent;
 
 public class Menu extends AppCompatActivity {
 
@@ -39,4 +40,7 @@ public class Menu extends AppCompatActivity {
         Intent Evento = new Intent(this, MenuLog.class);
         startActivity(Evento);
     }
+
+
+
 }

@@ -26,13 +26,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     private static final String CREATE_TABLE =  "create table " + TABLE_NAME + "("
-            + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + _ID + " INTEGER PRIMARY KEY NOT NULL, "
             + DESC + " TEXT NOT NULL, "
             + CAUSE + " TEXT NOT NULL, "
             + SERVICE + " TEXT NOT NULL, "
             + DATETIMEINIT + " TEXT NOT NULL, "
             +  DATETIMEFINISH + " TEXT NOT NULL, "
-            + AVAILABLE + " TEXT NOT NULL );";
+            + AVAILABLE + " TEXT NOT NULL )";
 
 
 

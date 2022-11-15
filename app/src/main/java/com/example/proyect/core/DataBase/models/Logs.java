@@ -1,4 +1,4 @@
-package com.example.proyect.app.ui.models;
+package com.example.proyect.core.DataBase.models;
 
 public class Logs {
 

@@ -11,11 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyect.app.ui.Controller.AdapterGeneralInformation;
-import com.example.proyect.app.ui.models.Logs;
+import com.example.proyect.core.DataBase.models.Logs;
 import com.example.proyect.R;
 
 
@@ -26,14 +25,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
 
 public class MenuLog extends AppCompatActivity {
     List<String> listadoFile = new ArrayList<String>();
     List<String> listIps = new ArrayList<String>();
     List<String> listResponse = new ArrayList<String>();
-    List<String> listIpToset = new ArrayList<String>();
+    List<String> listDate = new ArrayList<String>();
+    List<String> listSerial = new ArrayList<String>();
     ArrayList<Logs> listSearhData = new ArrayList<Logs>();
     ArrayList<Logs> listCardLog = new ArrayList<Logs>();
     private ProgressBar progress;
@@ -71,7 +69,7 @@ public class MenuLog extends AppCompatActivity {
         if(textBusqueda.length() >0 ) {
             listSearhData.clear();
             for (int i = 0; i < listCardLog.toArray().length; i++) {
-                if (listCardLog.get(i).getIp().equals(textBusqueda.getText().toString().toLowerCase())) {
+                if (listCardLog.get(i).getNumCard().equals(textBusqueda.getText().toString().toLowerCase())) {
                     listSearhData.add(listCardLog.get(i));
                 }
             }
@@ -104,14 +102,45 @@ public class MenuLog extends AppCompatActivity {
         recicle.setLayoutManager(new LinearLayoutManager(getBaseContext()));
     }
 
-    public int count(String ipSearh, ArrayList<String> array){
-        int count =0;
-        for (int i = 0; i < array.toArray().length; i++) {
-            if (array.get(i).contains(ipSearh)) {
-                count++;
+    public void loadCardData(){
+    if(listadoFile.toArray().length >0) {
+        for (int i = 0; i < listadoFile.toArray().length; i++) {
+            Logs logs = new Logs(listIps.get(i),listDate.get(i),listResponse.get(i),listSerial.get(i),"_"+(1+i));
+
+          listCardLog.add(logs);
+        }
+    }
+    }
+
+    void addDateAndResetResponse(){
+        if(listResponse.toArray().length >0) {
+            for (int i = 0; i < listResponse.toArray().length; i++) {
+
+                String linea = listResponse.get(i);// linea ya cargada del archivo
+                String[] temData = linea.split(" \"");
+
+                if(temData != null){
+                    listDate.add(temData[0]);// add data
+                    listResponse.set(i, temData[1]);// add response
+                }
+
             }
         }
-        return count;
+    }
+
+    void addSerialAndResetResponse(){
+        if(listResponse.toArray().length >0) {
+            for (int i = 0; i < listResponse.toArray().length; i++) {
+
+                String linea = listResponse.get(i);// linea ya cargada del archivo
+                String[] temData = linea.split("1\" ");
+
+                if(temData != null){
+                    listResponse.set(i, temData[0]);// add response
+                    listSerial.add(temData[1]);
+                }
+            }
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -128,23 +157,6 @@ public class MenuLog extends AppCompatActivity {
                     listResponse.add(temData[1]);// add response
                 }
             } ;
-
-            Logs logs = new Logs("12","23","23","23","2");
-            Logs logs2 = new Logs("13","23","23","23","2");
-            Logs logs3 = new Logs("14","23","23","2","");
-            Logs logs4 = new Logs("15","23","23","23","2");
-            listCardLog.add(logs);
-            listCardLog.add(logs2);
-            listCardLog.add(logs3);
-            listCardLog.add(logs4);
-            // seteo de la lista para solo los ip en especifico
-            listIpToset.addAll(listIps.stream().collect(Collectors.toSet()));
-
-          // System.out.println("Total de lineas" + listadoFile.toArray().length);
-          // System.out.println("Total de ip " + listIps.toArray().length);
-          // System.out.println("Total de toset ip " + listIpToset.toArray().length);
-          // System.out.println("Total de Response" + listResponse.toArray().length);
-
         }
     }
 
@@ -159,7 +171,7 @@ public class MenuLog extends AppCompatActivity {
 
             while (linea != null) {
                 todo = todo + linea + "\n";
-                listadoFile.add(linea.toString().split(" 2")[0]);
+                listadoFile.add(linea.toString());
                 linea = br.readLine();
             }
 
@@ -197,6 +209,9 @@ public class MenuLog extends AppCompatActivity {
             progress.setVisibility(View.INVISIBLE);
             searhFileAccedDefined();
             addAllRequiredData();//carga los arreglos con la dta
+            addDateAndResetResponse();//scrapea la fecha  e ajusta el response
+            addSerialAndResetResponse();//scrapea el serial e ajusta el response
+            loadCardData();//cargar la info del card
             initReciclecVIew();//inicializa los reciclew view
         }
         @Override

@@ -140,6 +140,7 @@ public class ManuSesion extends AppCompatActivity {
             toast.show();
         }
     }
+
     class Task1 extends AsyncTask<String ,Void,String> {
 
         @Override
@@ -155,7 +156,7 @@ public class ManuSesion extends AppCompatActivity {
             progress.setVisibility(View.INVISIBLE);
           //  recicle.setVisibility(View.VISIBLE);
             searhFileAccedDefined();//carga la data del seguridadLog.txt
-            addAllRequiredData();//carga los arreglos con la dta
+            addAllRequiredData();//carga los arreglos con la dta de seguridadLog.txt
             initReciclecVIew();//inicializa los reciclew view
             for (int i=0;i<listIpToset.toArray().length; i++){
                 new Task2().execute(String.valueOf(i));

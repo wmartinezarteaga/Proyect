@@ -7,8 +7,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/listabusqueda"
-        android:layout_width="414dp"
-        android:layout_height="273dp"
+        android:layout_width="376dp"
+        android:layout_height="221dp"
         android:background="#BDF89E"
         android:elevation="10dp"
         android:orientation="vertical"
@@ -118,12 +118,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="115dp"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView34"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Respuesta"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -131,16 +132,11 @@
 
                 <TextView
                     android:id="@+id/textresponlog"
-                    android:layout_width="match_parent"
-                    android:layout_height="63dp"
-                    android:text="Example" />
+                    android:layout_width="272dp"
+                    android:layout_height="38dp"
+                    android:text="Example"
+                    android:textAlignment="center" />
 
-                <Button
-                    android:id="@+id/btbguardarlog"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:shadowColor="#BDF89E"
-                    android:text="Guardar" />
             </LinearLayout>
 
         </LinearLayout>

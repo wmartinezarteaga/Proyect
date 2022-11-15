@@ -4,12 +4,13 @@ import java.util.Random;
 
 public class Eventos {
 
-    private String fechaIni, descripción, id, causa, servicioAfectado, fechaFin, indisponibildad;
+    private String fechaIni, descripción, causa, servicioAfectado, fechaFin, indisponibildad;
+    private int  id;
 
     public Eventos(String fechaIni, String descripción, String causa, String servicioAfectado, String fechaFin, String indisponibildad) {
         this.fechaIni = fechaIni;
         this.descripción = descripción;
-        this.id = String.valueOf(new Random().nextInt(200));
+        this.id = new Random().nextInt(2000);
         this.causa = causa;
         this.servicioAfectado = servicioAfectado;
         this.fechaFin = fechaFin;
@@ -32,11 +33,11 @@ public class Eventos {
         this.descripción = descripción;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
