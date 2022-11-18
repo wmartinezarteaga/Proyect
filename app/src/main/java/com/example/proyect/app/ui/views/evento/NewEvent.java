@@ -3,6 +3,7 @@ package com.example.proyect.app.ui.views.evento;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyect.R;
+import com.example.proyect.app.ui.Controller.Message;
 import com.example.proyect.app.ui.Controller.Utiles;
+import com.example.proyect.app.ui.views.ManuSesion;
 import com.example.proyect.core.DataBase.models.Eventos;
 import com.example.proyect.core.DataBase.services.DBManager;
 
@@ -67,11 +70,7 @@ public class NewEvent extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               try {
-                   insertar();
-               } catch (SQLException e) {
-                   e.printStackTrace();
-               }
+              new   TaskInsert().execute("");
             }
         });
     }
@@ -91,7 +90,6 @@ public void setDiferences() throws ParseException {
     if(diferences.getText() != "se calcula al terminar"){
         isfFinish = true;
     }
-
 }
 
 
@@ -118,18 +116,44 @@ public boolean insertar() throws SQLException {
                     base.update(newEvt,newEvtID);//se mpdifica si hay alguno
                     base.close();
                     isfFinish = false;
-                    Toast toast = Toast.makeText(this,"Ya se encuentra un Evento regitrado \n Se modifico CODIGO :" +newEvtID, Toast.LENGTH_LONG);
-                    toast.show();
+                    Message.message(this, "Ya se encuentra un Evento regitrado \n Se modifico CODIGO :" +newEvtID);
                     return  true;
                 }
             }else{
-                Toast toast = Toast.makeText(this,"Debe terminar el evento", Toast.LENGTH_LONG);
-                toast.show();
+                Message.message(this, "Oops! Debe terminar el evento");
             }
         }else{
-            Toast toast = Toast.makeText(this,"Campos requeridos vacios", Toast.LENGTH_LONG);
-            toast.show();
+            Message.message(this, "Oops! Campos requeridos vacios");
         }
     return  false;
 }
+
+
+class TaskInsert extends AsyncTask<String,String,String>{
+
+    @Override
+    protected String doInBackground(String... strings) {
+        try{
+            Thread.sleep(0000);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        return strings[0];
+    }
+    @Override
+    protected void onPostExecute(String s) {
+       // progress.setVisibility(View.INVISIBLE);
+        try {
+            insertar();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    protected void onPreExecute() {
+       // progress.setVisibility(View.VISIBLE);
+    }
+}
+
+
 }

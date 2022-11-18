@@ -45,12 +45,4 @@ public class MenuEventos extends AppCompatActivity {
             }
         });
     }
-
-    public void mostrarSql() throws SQLException {
-        base.open();
-       System.out.println("TAMA: ??"+base.fetch().getCount());
-        Log.e("GENIAL: " , String.valueOf(base.fetch().toString()) );
-        base.close();
-    }
-
 }

@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.proyect.app.ui.Controller.AdapterGeneralInformation;
+import com.example.proyect.app.ui.Controller.Message;
 import com.example.proyect.core.DataBase.models.Logs;
 import com.example.proyect.R;
 
@@ -84,14 +85,11 @@ public class MenuLog extends AppCompatActivity {
             }else{
                 initReciclecVIew();
 
-                Toast toast = Toast.makeText(this.getBaseContext(),"No se encontro registro", Toast.LENGTH_LONG);
-                toast.show();
-
+                Message.message(this, "No se encontro registro");
             }
         }else{
             initReciclecVIew();
-            Toast toast = Toast.makeText(this.getBaseContext(),"Digite una palabra clave", Toast.LENGTH_LONG);
-            toast.show();
+            Message.message(this, "Digite una palabra clave");
         }
     }
 
@@ -177,11 +175,9 @@ public class MenuLog extends AppCompatActivity {
 
             br.close();
             fileLoad.close();
-            Toast toast = Toast.makeText(this.getBaseContext(),"Datos cargados exitosamente!!", Toast.LENGTH_LONG);
-            toast.show();
+           Message.message(this,"Datos cargados exitosamente!!");
         } catch (IOException e) {
-            Toast toast = Toast.makeText(this.getBaseContext(),e.getMessage(), Toast.LENGTH_LONG);
-            toast.show();
+           Message.message(this, "Oops, hubo un inconveniente al cargar");
         }
     }
 
@@ -189,10 +185,6 @@ public class MenuLog extends AppCompatActivity {
     public void initTaskSearh(){
         new MenuLog.TaskSearhData().execute(listCardLog.toString().trim());
     }
-
-
-
-
 
 
     class Task1 extends AsyncTask<String ,Void,String> {
@@ -216,19 +208,11 @@ public class MenuLog extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings) {
-
-
             try{
-
                 Thread.sleep(2000);
-
             }catch (InterruptedException e){
-
                 e.printStackTrace();
-
-
             }
-
             return strings[0];
         }
     }

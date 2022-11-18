@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.proyect.app.ui.Controller.AdapterSeguridad;
+import com.example.proyect.app.ui.Controller.Message;
 import com.example.proyect.core.DataBase.models.Eventos;
 import com.example.proyect.core.DataBase.models.Seguridad;
 
@@ -133,11 +134,9 @@ public class ManuSesion extends AppCompatActivity {
 
             br.close();
             fileLoad.close();
-            Toast toast = Toast.makeText(this.getBaseContext(),"Datos cargados exitosamente!!", Toast.LENGTH_LONG);
-            toast.show();
+            Message.message(this, "Data cargados exitosamente");
         } catch (IOException e) {
-            Toast toast = Toast.makeText(this.getBaseContext(),e.getMessage(), Toast.LENGTH_LONG);
-            toast.show();
+            Message.message(this ,"Oops! hubo un error al cargar");
         }
     }
 
@@ -154,7 +153,6 @@ public class ManuSesion extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             progress.setVisibility(View.INVISIBLE);
-          //  recicle.setVisibility(View.VISIBLE);
             searhFileAccedDefined();//carga la data del seguridadLog.txt
             addAllRequiredData();//carga los arreglos con la dta de seguridadLog.txt
             initReciclecVIew();//inicializa los reciclew view
