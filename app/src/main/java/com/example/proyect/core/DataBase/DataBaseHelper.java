@@ -34,8 +34,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             +  DATETIMEFINISH + " TEXT NOT NULL, "
             + AVAILABLE + " TEXT NOT NULL )";
 
-
-
     public DataBaseHelper(@Nullable Context context) {
         super(context, DB_NOM, null, VERSION);
     }
