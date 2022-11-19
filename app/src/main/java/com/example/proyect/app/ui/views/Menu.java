@@ -10,12 +10,15 @@ import com.example.proyect.R;
 import com.example.proyect.app.ui.context.MainActivity;
 import com.example.proyect.app.ui.views.evento.NewEvent;
 
+import java.util.Objects;
+
 public class Menu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Menu Inicial");
     }
 
     //boton para conectar la pantalla menu con la pantalla incio

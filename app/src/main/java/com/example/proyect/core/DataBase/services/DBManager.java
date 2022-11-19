@@ -100,8 +100,9 @@ public class DBManager {
         return i;
     }
 
-    public void delete(long _id) {
-        database.delete(DataBaseHelper.TABLE_NAME, DataBaseHelper._ID + "=" + _id, null);
-    }
+    public int delete(long _id) {
+     int i =   database.delete(DataBaseHelper.TABLE_NAME, DataBaseHelper._ID + "=" + _id, null);
+   return  i;
+     }
 
 }

@@ -25,7 +25,6 @@ public class NewEvent extends AppCompatActivity {
 
     private Button guardar;
     private Button   terminar;
-    private Button iniciar;
 
     private TextView initDate;
     private TextView diferences;
@@ -41,7 +40,7 @@ public class NewEvent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_event);
-
+         Objects.requireNonNull(getSupportActionBar()).setTitle("Registro de Evento");
          base = new DBManager(getBaseContext());
         guardar = findViewById(R.id.btnGuardar);
         terminar = findViewById(R.id.btnEnd);

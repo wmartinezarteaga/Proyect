@@ -26,6 +26,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MenuLog extends AppCompatActivity {
     List<String> listadoFile = new ArrayList<String>();
@@ -48,6 +49,7 @@ public class MenuLog extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_log);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Todo los registros");
         progress = findViewById(R.id.progressBarseguridad);
         recicle = findViewById(R.id.recyclerViewLog);
         textBusqueda = findViewById(R.id.editSearh);

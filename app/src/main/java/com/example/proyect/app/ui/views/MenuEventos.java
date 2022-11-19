@@ -14,6 +14,7 @@ import com.example.proyect.app.ui.views.evento.ShowEvt;
 import com.example.proyect.core.DataBase.services.DBManager;
 
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class MenuEventos extends AppCompatActivity {
    Button registro;
@@ -23,7 +24,7 @@ public class MenuEventos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_eventos);
-
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Opciones de eventos");
 
         registro = findViewById(R.id.registrar);
         showEvt = findViewById(R.id.btnshowEvt);

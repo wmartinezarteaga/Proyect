@@ -90,6 +90,7 @@ public class TabletDynamic {
                 @Override
                 public void onClick(View v) {
                     Intent loo = new Intent( context, EditEvt.class);
+                    loo.putExtra("data",row);
                     context.startActivity(loo);
                     Message.message(context,  "Listo para editar" +row[0] );
                 }

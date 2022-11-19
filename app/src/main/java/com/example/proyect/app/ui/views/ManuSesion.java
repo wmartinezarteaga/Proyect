@@ -20,6 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import com.example.proyect.app.ui.Controller.AdapterSeguridad;
@@ -46,7 +47,7 @@ public class ManuSesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manu_sesion);
-
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Conteo de registro");
         progress = findViewById(R.id.progressBarseguridad);
         recicle = findViewById(R.id.recyclerViewSesion);
 

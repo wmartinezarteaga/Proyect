@@ -15,9 +15,9 @@ import com.example.proyect.core.DataBase.services.DBManager;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ShowEvt extends AppCompatActivity {
-  private  TableLayout tableLayout;
   private   DBManager base ;
    private TabletDynamic tabla;
     String[]  header ;
@@ -25,6 +25,7 @@ public class ShowEvt extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_evt);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Eventos registrados");
         base = new DBManager(getBaseContext());
         initDataTable();//inicializa la data de la tabla
     }
