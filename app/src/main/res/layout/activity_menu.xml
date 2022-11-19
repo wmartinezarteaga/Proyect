@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu">
+    android:background="#E9F6B9B9"
+    tools:context=".app.ui.views.Menu">
+
+
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/txtmenu"
+        android:layout_width="204dp"
+        android:layout_height="66dp"
         android:text="@string/tex2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintBottom_toTopOf="@+id/cardView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,63 +28,143 @@
         android:text="@string/tex3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView5" />
+        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView5"
+        app:layout_constraintVertical_bias="0.558" />
+
+    <LinearLayout
+        android:layout_width="835dp"
+        android:layout_height="204dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="134dp"
-        android:layout_height="72dp"
+        android:id="@+id/cardOpen"
+        android:layout_width="212dp"
+        android:layout_height="145dp"
+        android:layout_margin="16dp"
         android:layout_marginStart="16dp"
         android:background="#2196F3"
-        app:cardBackgroundColor="@color/purple_500"
+        android:onClick="Evento"
+        app:cardBackgroundColor="#393737"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="8dp"
+        app:layout_columnWeight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cardView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.502">
+        app:layout_constraintVertical_bias="0.502"
+        app:layout_rowWeight="1">
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:onClick="Evento"
-            android:text="@string/BotomEV" />
+        <LinearLayout
+            android:layout_width="161dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="114dp"
+                android:layout_height="87dp"
+                android:layout_gravity="center_horizontal"
+
+                android:foreground="@mipmap/evento_233_foreground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="EVENTOS"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
-        android:layout_width="137dp"
-        android:layout_height="74dp"
-        app:cardBackgroundColor="@color/purple_500"
+        android:layout_width="212dp"
+        android:layout_height="145dp"
+        android:layout_margin="16dp"
+        android:onClick="Sesion"
+        app:cardBackgroundColor="#393737"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="8dp"
+        app:layout_columnWeight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_rowWeight="1">
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/BotomSG"
-            android:onClick="Sesion"
-            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="87dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_horizontal"
+                android:foreground="@mipmap/evento" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="SEGURIDAD"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView5"
-        android:layout_width="134dp"
-        android:layout_height="82dp"
-        app:cardBackgroundColor="@color/purple_500"
+        android:layout_width="212dp"
+        android:layout_height="145dp"
+        android:layout_margin="16dp"
+        android:onClick="Log"
+        app:cardBackgroundColor="#393737"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="8dp"
+        app:layout_columnWeight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardView4"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_rowWeight="1">
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/BotomLG"
-            android:onClick="Log"/>
+        <LinearLayout
+            android:layout_width="149dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="124dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_horizontal"
+                android:foreground="@mipmap/mapjos_foreground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="LOG"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
