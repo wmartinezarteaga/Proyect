@@ -1,18 +1,24 @@
 package com.example.proyect.app.ui.views;
 
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ProgressBar;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-
 import com.example.proyect.R;
+import com.example.proyect.app.ui.Controller.AdapterSeguridad;
+import com.example.proyect.app.ui.Controller.Message;
+import com.example.proyect.app.ui.views.Sesion.InfoIpLocalizations;
+import com.example.proyect.core.DataBase.models.Eventos;
+import com.example.proyect.core.DataBase.models.Seguridad;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,11 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-
-import com.example.proyect.app.ui.Controller.AdapterSeguridad;
-import com.example.proyect.app.ui.Controller.Message;
-import com.example.proyect.core.DataBase.models.Eventos;
-import com.example.proyect.core.DataBase.models.Seguridad;
 
 public class ManuSesion extends AppCompatActivity {
     List<String> listadoFile = new ArrayList<String>();
@@ -77,6 +78,14 @@ public class ManuSesion extends AppCompatActivity {
         }
 
       adapterSeguridad = new AdapterSeguridad(getBaseContext(), listCardSeg);
+        adapterSeguridad.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent inicio = new Intent(getBaseContext(), InfoIpLocalizations.class);
+
+                startActivity(inicio);
+            }
+        });
       recicle.setAdapter(adapterSeguridad);
       recicle.setHasFixedSize(true);
       recicle.setLayoutManager(new LinearLayoutManager(getBaseContext()));

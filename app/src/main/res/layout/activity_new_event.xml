@@ -59,7 +59,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Digite el texto"
+                    android:hint="Ingrese la descripcion"
                     android:inputType="textPersonName" />
             </LinearLayout>
 
@@ -110,7 +110,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Digite el texto"
+                    android:hint="Ingresa la causa"
                     android:inputType="textPersonName" />
 
             </LinearLayout>
@@ -136,7 +136,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Digite el texto"
+                    android:hint="Ingrese el servicio"
                     android:inputType="textPersonName" />
             </LinearLayout>
 

@@ -1,14 +1,13 @@
 package com.example.proyect.app.ui.views;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.proyect.R;
 import com.example.proyect.app.ui.context.MainActivity;
-import com.example.proyect.app.ui.views.evento.NewEvent;
 
 import java.util.Objects;
 

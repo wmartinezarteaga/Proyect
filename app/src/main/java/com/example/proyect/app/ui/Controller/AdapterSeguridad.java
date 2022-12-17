@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,9 +16,22 @@ import com.example.proyect.core.DataBase.models.Seguridad;
 import java.util.ArrayList;
 
 public class AdapterSeguridad extends RecyclerView.Adapter<SeguridadViewHolder> {
-    ArrayList<Seguridad> listCardSeg;
+   private final  ArrayList<Seguridad> listCardSeg;
+
+    private AdapterView.OnItemClickListener mListener;
     LayoutInflater inflater;
     View view;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+
+        void onDeleteClick(int position);
+    }
+
+
+    public void setOnItemClickListener(AdapterView.OnItemClickListener listener) {
+        mListener = listener;
+    }
 
     public AdapterSeguridad(Context context, ArrayList<Seguridad> list) {
 
@@ -26,9 +40,9 @@ public class AdapterSeguridad extends RecyclerView.Adapter<SeguridadViewHolder> 
     }
 
     @Override
-    public SeguridadViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+   public SeguridadViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
       view = inflater.inflate(R.layout.list_sesion, parent,false);
-        return new SeguridadViewHolder(view);
+        return new SeguridadViewHolder(view,mListener);
     }
 
 
@@ -53,9 +67,10 @@ public class AdapterSeguridad extends RecyclerView.Adapter<SeguridadViewHolder> 
 }
 
 
- class SeguridadViewHolder extends RecyclerView.ViewHolder{
+  class SeguridadViewHolder extends RecyclerView.ViewHolder {
  TextView txtnameCard,txtIp,textCantidad;
-    public SeguridadViewHolder(View itemView) {
+
+    public SeguridadViewHolder(final View itemView, AdapterView.OnItemClickListener listener) {
 
         super(itemView);
 
@@ -63,6 +78,18 @@ public class AdapterSeguridad extends RecyclerView.Adapter<SeguridadViewHolder> 
        txtIp  = itemView.findViewById(R.id.textIp);
         textCantidad = itemView.findViewById(R.id.textCantidad);
 
-
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null){
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        listener.onItemClick(null,itemView,position,1);
+                    }
+                }
+            }
+        });
     }
-}
+
+
+ }
