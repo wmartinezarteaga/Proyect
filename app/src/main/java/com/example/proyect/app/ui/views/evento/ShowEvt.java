@@ -1,13 +1,9 @@
 package com.example.proyect.app.ui.views.evento;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyect.R;
 import com.example.proyect.app.ui.Controller.TabletDynamic;
@@ -25,14 +21,14 @@ public class ShowEvt extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_evt);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Eventos registrados");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("LOCALIZACIONES");
         base = new DBManager(getBaseContext());
         initDataTable();//inicializa la data de la tabla
     }
 
     public void initDataTable(){
         tabla = new TabletDynamic(findViewById(R.id.tablet),this,false);
-        header = new String[]{"ID", "DESCRIPCION", "CAUSA", "SERVICIO", "FECHA INICIAL", "FECHA FINAL", "INDISPONIBILIDAD"};
+        header = new String[]{"IP", "PAIS", "REGION", "CIUDAD", "LATITUD", "LONGITUD", "ZONA DE T"};
         tabla.addHeader(header);
         try {
             dataLoadTable();
@@ -43,23 +39,22 @@ public class ShowEvt extends AppCompatActivity {
 
     public void dataLoadTable() throws SQLException {
         base.open();
-        Cursor mCur = base.getAllDataTabelt();
+        Cursor mCur = base.getAllDataTabeltPosision();
         base.close();
         while (!mCur.isAfterLast()) {
             String[] items = {
-                    mCur.getString(0),
+                    mCur.getString(14),
                     mCur.getString(1),
-                    mCur.getString(2),
-                    mCur.getString(3),
                     mCur.getString(4),
                     mCur.getString(5),
-                    mCur.getString(6)
+                    mCur.getString(7),
+                    mCur.getString(8),
+                    mCur.getString(9)
             };
             ArrayList<String[]> data = new ArrayList<String[]>();
             data.add(items);
             tabla.addData(data);
             mCur.moveToNext();
         }
-
     }
 }

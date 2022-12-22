@@ -82,7 +82,7 @@ public class ManuSesion extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent inicio = new Intent(getBaseContext(), InfoIpLocalizations.class);
-
+                   inicio.putExtra("ip",listCardSeg.get(position).getIp());
                 startActivity(inicio);
             }
         });

@@ -1,26 +1,19 @@
 package com.example.proyect.app.ui.Controller;
-import android.app.Activity;
+
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.provider.CalendarContract;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.example.proyect.app.ui.views.MenuEventos;
-import com.example.proyect.app.ui.views.evento.EditEvt;
-import com.example.proyect.app.ui.views.evento.NewEvent;
-import com.example.proyect.app.ui.views.evento.ShowEvt;
+import com.example.proyect.core.DataBase.services.DBManager;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class TabletDynamic {
     private final TableLayout tableLayout;
@@ -33,7 +26,7 @@ public class TabletDynamic {
     private int indexR;
     private boolean multiColor;
     int firtColor, secondColor, textColor, colorLinea;
-
+    DBManager base ;
 
     public TabletDynamic(TableLayout tableLayout, Context context,boolean multiColor) {
         this.tableLayout = tableLayout;
@@ -89,10 +82,22 @@ public class TabletDynamic {
             tableRow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent loo = new Intent( context, EditEvt.class);
-                    loo.putExtra("data",row);
-                    context.startActivity(loo);
-                    Message.message(context,  "Listo para editar" +row[0] );
+                    base = new DBManager(v.getContext());
+
+                    try {
+                        base.open();
+                        int response=  base.deletePosision((indexR -1));
+                        if(response == 1){
+                            Message.message(v.getContext(), "Se elimino el Evento: "+(indexR -1));
+
+                        }else {
+                            Message.message(v.getContext(), "Oops hubo un error al eliminar : " + (indexR-1));
+                        }
+                        base.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                   ;
                 }
             });
             tableLayout.addView(tableRow);

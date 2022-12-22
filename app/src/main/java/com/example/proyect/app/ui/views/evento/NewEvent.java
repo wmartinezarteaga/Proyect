@@ -1,19 +1,16 @@
 package com.example.proyect.app.ui.views.evento;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.TimePickerDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyect.R;
 import com.example.proyect.app.ui.Controller.Message;
 import com.example.proyect.app.ui.Controller.Utiles;
-import com.example.proyect.app.ui.views.ManuSesion;
 import com.example.proyect.core.DataBase.models.Eventos;
 import com.example.proyect.core.DataBase.services.DBManager;
 
@@ -98,9 +95,9 @@ public boolean insertar() throws SQLException {
             if(isfFinish){
                 if(newEvtID == 0){
                     newEvt  = new Eventos(initDate.getText().toString(),descripcions.getText().toString(),causa.getText().toString(),servicio.getText().toString(),endDate,diferences.getText().toString());
-                    base.open();
-                    base.insert(newEvt);
-                    base.close();
+                 //  base.open();
+                 //  base.insert(newEvt);
+                 //  base.close();
 
                     newEvtID = newEvt.getId();
                     isfFinish = false;
@@ -111,9 +108,9 @@ public boolean insertar() throws SQLException {
                     newEvt.setServicioAfectado(servicio.getText().toString());
                     newEvt.setIndisponibildad(diferences.getText().toString());
                     newEvt.setFechaFin(endDate);
-                    base.open();
-                    base.update(newEvt,newEvtID);//se mpdifica si hay alguno
-                    base.close();
+                  //  base.open();
+                  //  base.update(newEvt,newEvtID);//se mpdifica si hay alguno
+                  //  base.close();
                     isfFinish = false;
                     Message.message(this, "Ya se encuentra un Evento regitrado \n Se modifico CODIGO :" +newEvtID);
                     return  true;

@@ -5,10 +5,11 @@ import com.example.proyect.core.DataBase.models.Localizacion;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface ModelViewServices {
-    @GET("24.48.0.1")
-    Call<Localizacion> getModels();
+    @GET("{ip}")
+    Call<Localizacion> getModels(@Path("ip") String ip);
 
   // @FormUrlEncoded
   // @POST("upload/photo")

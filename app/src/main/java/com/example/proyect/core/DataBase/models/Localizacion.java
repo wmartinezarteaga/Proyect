@@ -1,132 +1,90 @@
 package com.example.proyect.core.DataBase.models;
 
+import com.fasterxml.jackson.annotation.*;
+
 public class Localizacion {
+    private String status;
+    private String country;
+    private String countryCode;
+    private String region;
+    private String regionName;
+    private String city;
+    private String zip;
+    private double lat;
+    private double lon;
+    private String timezone;
+    private String isp;
+    private String org;
+    private String as;
+    private String query;
 
+    @JsonProperty("status")
+    public String getStatus() { return status; }
+    @JsonProperty("status")
+    public void setStatus(String value) { this.status = value; }
 
-     private  String   QUERY;
-     private   String   STATUS;
-     private   String   COUNTR;
-     private   String   COUNTRYCODE;
-     private   String    REGION;
-     private   String   REGIONNME;
-     private   String   CITY;
-     private   String   ZIP;
-     private   int   LAT;
-     private   int   LON;
-     private   String   TIMEZON;
-     private   String   ISP;
-     private   String   ORG;
-     private   String   AS ;
+    @JsonProperty("country")
+    public String getCountry() { return country; }
+    @JsonProperty("country")
+    public void setCountry(String value) { this.country = value; }
 
-    public String getQUERY() {
-        return QUERY;
-    }
+    @JsonProperty("countryCode")
+    public String getCountryCode() { return countryCode; }
+    @JsonProperty("countryCode")
+    public void setCountryCode(String value) { this.countryCode = value; }
 
-    public void setQUERY(String QUERY) {
-        this.QUERY = QUERY;
-    }
+    @JsonProperty("region")
+    public String getRegion() { return region; }
+    @JsonProperty("region")
+    public void setRegion(String value) { this.region = value; }
 
-    public String getSTATUS() {
-        return STATUS;
-    }
+    @JsonProperty("regionName")
+    public String getRegionName() { return regionName; }
+    @JsonProperty("regionName")
+    public void setRegionName(String value) { this.regionName = value; }
 
-    public void setSTATUS(String STATUS) {
-        this.STATUS = STATUS;
-    }
+    @JsonProperty("city")
+    public String getCity() { return city; }
+    @JsonProperty("city")
+    public void setCity(String value) { this.city = value; }
 
-    public String getCOUNTR() {
-        return COUNTR;
-    }
+    @JsonProperty("zip")
+    public String getZip() { return zip; }
+    @JsonProperty("zip")
+    public void setZip(String value) { this.zip = value; }
 
-    public void setCOUNTR(String COUNTR) {
-        this.COUNTR = COUNTR;
-    }
+    @JsonProperty("lat")
+    public double getLat() { return lat; }
+    @JsonProperty("lat")
+    public void setLat(double value) { this.lat = value; }
 
-    public String getCOUNTRYCODE() {
-        return COUNTRYCODE;
-    }
+    @JsonProperty("lon")
+    public double getLon() { return lon; }
+    @JsonProperty("lon")
+    public void setLon(double value) { this.lon = value; }
 
-    public void setCOUNTRYCODE(String COUNTRYCODE) {
-        this.COUNTRYCODE = COUNTRYCODE;
-    }
+    @JsonProperty("timezone")
+    public String getTimezone() { return timezone; }
+    @JsonProperty("timezone")
+    public void setTimezone(String value) { this.timezone = value; }
 
-    public String getREGION() {
-        return REGION;
-    }
+    @JsonProperty("isp")
+    public String getISP() { return isp; }
+    @JsonProperty("isp")
+    public void setISP(String value) { this.isp = value; }
 
-    public void setREGION(String REGION) {
-        this.REGION = REGION;
-    }
+    @JsonProperty("org")
+    public String getOrg() { return org; }
+    @JsonProperty("org")
+    public void setOrg(String value) { this.org = value; }
 
-    public String getREGIONNME() {
-        return REGIONNME;
-    }
+    @JsonProperty("as")
+    public String getAs() { return as; }
+    @JsonProperty("as")
+    public void setAs(String value) { this.as = value; }
 
-    public void setREGIONNME(String REGIONNME) {
-        this.REGIONNME = REGIONNME;
-    }
-
-    public String getCITY() {
-        return CITY;
-    }
-
-    public void setCITY(String CITY) {
-        this.CITY = CITY;
-    }
-
-    public String getZIP() {
-        return ZIP;
-    }
-
-    public void setZIP(String ZIP) {
-        this.ZIP = ZIP;
-    }
-
-    public int getLAT() {
-        return LAT;
-    }
-
-    public void setLAT(int LAT) {
-        this.LAT = LAT;
-    }
-
-    public int getLON() {
-        return LON;
-    }
-
-    public void setLON(int LON) {
-        this.LON = LON;
-    }
-
-    public String getTIMEZON() {
-        return TIMEZON;
-    }
-
-    public void setTIMEZON(String TIMEZON) {
-        this.TIMEZON = TIMEZON;
-    }
-
-    public String getISP() {
-        return ISP;
-    }
-
-    public void setISP(String ISP) {
-        this.ISP = ISP;
-    }
-
-    public String getORG() {
-        return ORG;
-    }
-
-    public void setORG(String ORG) {
-        this.ORG = ORG;
-    }
-
-    public String getAS() {
-        return AS;
-    }
-
-    public void setAS(String AS) {
-        this.AS = AS;
-    }
+    @JsonProperty("query")
+    public String getQuery() { return query; }
+    @JsonProperty("query")
+    public void setQuery(String value) { this.query = value;}
 }

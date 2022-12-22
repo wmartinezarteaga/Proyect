@@ -1,16 +1,15 @@
 package com.example.proyect.app.ui.views.evento;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.proyect.R;
 import com.example.proyect.app.ui.Controller.Message;
-import com.example.proyect.app.ui.views.MenuEventos;
 import com.example.proyect.core.DataBase.models.Eventos;
 import com.example.proyect.core.DataBase.services.DBManager;
 
@@ -75,39 +74,39 @@ public class EditEvt extends AppCompatActivity {
             newEvt.setCausa(causa.getText().toString());
             newEvt.setServicioAfectado(servicio.getText().toString());
 
-            base.open();
-           int response = base.update(newEvt,newEvtID);
-            base.close();
+       //   base.open();
+       //  int response = base.update(newEvt,newEvtID);
+       //   base.close();
 
-            if(response >0){
-                Message.message(getBaseContext(), "Editado con exito");
-                Intent loo = new Intent( EditEvt.this, MenuEventos.class);
-                startActivity(loo);
+       //    if(response >0){
+       //        Message.message(getBaseContext(), "Editado con exito");
+       //        Intent loo = new Intent( EditEvt.this, MenuEventos.class);
+       //        startActivity(loo);
             }else {
                 Message.message(getBaseContext(), "Oops, No hay evento que eliminar");
             }
-        }
+     //   }
     }
 
 
     public void eliminar(){
 
         if(newEvtID != 0){
-            try {
-                base.open();
-                int response=  base.delete(newEvtID);
+          //  try {
+              //  base.open();
+             //   int response=  base.delete(newEvtID);
 
-                if(response == 1){
-                    Message.message(getBaseContext(), "Se elimino el Evento: "+newEvtID);
-                   Intent loo = new Intent( EditEvt.this, MenuEventos.class);
-                   startActivity(loo);
-                }else {
-                    Message.message(getBaseContext(), "Oops hubo un error al eliminar : "+newEvtID);
-                }
-                base.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+       //         if(response == 1){
+        //          Message.message(getBaseContext(), "Se elimino el Evento: "+newEvtID);
+        //         Intent loo = new Intent( EditEvt.this, MenuEventos.class);
+        //         startActivity(loo);
+        //      }else {
+        //          Message.message(getBaseContext(), "Oops hubo un error al eliminar : "+newEvtID);
+        //      }
+        //      base.close();
+           // } catch (SQLException e) {
+           //     e.printStackTrace();
+          //  }
 
         }else {
             Message.message(getBaseContext(), "Oops, No hay evento que eliminar");

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyect.R;
 import com.example.proyect.app.ui.context.MainActivity;
+import com.example.proyect.app.ui.views.evento.ShowEvt;
 
 import java.util.Objects;
 
@@ -28,7 +29,7 @@ public class Menu extends AppCompatActivity {
 
     //Boton que conecta la pantalla menu con la pantalla Evento
     public void Evento(View View){
-        Intent Evento = new Intent(this, MenuEventos.class);
+        Intent Evento = new Intent(this, ShowEvt.class);
         startActivity(Evento);
     }
 
