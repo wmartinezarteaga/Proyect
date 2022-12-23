@@ -1,4 +1,4 @@
-package com.example.proyect.app.ui.views.Sesion;
+package com.example.proyect.app.ui.views.sesion;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,11 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyect.R;
-import com.example.proyect.app.ui.Controller.Message;
-import com.example.proyect.app.ui.Controller.ModelViewAdapter;
-import com.example.proyect.core.DataBase.models.Localizacion;
-import com.example.proyect.core.DataBase.services.DBManager;
-import com.example.proyect.core.DataBase.services.NotificationsServices;
+import com.example.proyect.app.ui.controller.Message;
+import com.example.proyect.app.ui.controller.ModelViewAdapter;
+import com.example.proyect.core.database.models.Localizacion;
+import com.example.proyect.core.database.services.DBManager;
+import com.example.proyect.core.database.services.NotificationsServices;
 
 import java.sql.SQLException;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.example.proyect.app.ui.Controller;
+package com.example.proyect.app.ui.controller;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyect.R;
-import com.example.proyect.core.DataBase.models.Seguridad;
+import com.example.proyect.core.database.models.Seguridad;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.proyect.core.DataBase.services;
+package com.example.proyect.core.database.services;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;

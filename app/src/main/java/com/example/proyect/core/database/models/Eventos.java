@@ -1,4 +1,4 @@
-package com.example.proyect.core.DataBase.models;
+package com.example.proyect.core.database.models;
 
 import java.util.Random;
 

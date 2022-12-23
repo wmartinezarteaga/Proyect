@@ -1,10 +1,10 @@
-package com.example.proyect.core.DataBase.services;
+package com.example.proyect.core.database.services;
 
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 import android.util.Log;
 
-import com.example.proyect.core.DataBase.models.Localizacion;
+import com.example.proyect.core.database.models.Localizacion;
 
 import java.util.ArrayList;
 

@@ -5,12 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
 
 import com.example.proyect.R;
 import com.example.proyect.app.ui.views.Menu;
-import com.example.proyect.core.DataBase.DataBaseHelper;
+import com.example.proyect.core.database.DataBaseHelper;
 
 import java.util.Objects;
 

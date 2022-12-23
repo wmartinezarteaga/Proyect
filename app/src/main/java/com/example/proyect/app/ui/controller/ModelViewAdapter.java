@@ -1,4 +1,4 @@
-package com.example.proyect.app.ui.Controller;
+package com.example.proyect.app.ui.controller;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

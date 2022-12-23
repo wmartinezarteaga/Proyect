@@ -1,4 +1,4 @@
-package com.example.proyect.app.ui.Controller;
+package com.example.proyect.app.ui.controller;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,7 +10,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.example.proyect.core.DataBase.services.DBManager;
+import com.example.proyect.core.database.services.DBManager;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

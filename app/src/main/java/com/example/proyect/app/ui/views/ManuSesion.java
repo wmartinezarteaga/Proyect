@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyect.R;
-import com.example.proyect.app.ui.Controller.AdapterSeguridad;
-import com.example.proyect.app.ui.Controller.Message;
-import com.example.proyect.app.ui.views.Sesion.InfoIpLocalizations;
-import com.example.proyect.core.DataBase.models.Eventos;
-import com.example.proyect.core.DataBase.models.Seguridad;
+import com.example.proyect.app.ui.controller.AdapterSeguridad;
+import com.example.proyect.app.ui.controller.Message;
+import com.example.proyect.app.ui.views.sesion.InfoIpLocalizations;
+import com.example.proyect.core.database.models.Eventos;
+import com.example.proyect.core.database.models.Seguridad;
 
 import java.io.BufferedReader;
 import java.io.IOException;

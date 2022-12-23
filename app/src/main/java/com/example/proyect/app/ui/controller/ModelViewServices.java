@@ -1,7 +1,7 @@
-package com.example.proyect.app.ui.Controller;
+package com.example.proyect.app.ui.controller;
 
 
-import com.example.proyect.core.DataBase.models.Localizacion;
+import com.example.proyect.core.database.models.Localizacion;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

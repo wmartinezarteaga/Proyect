@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyect.R;
-import com.example.proyect.app.ui.Controller.Message;
-import com.example.proyect.core.DataBase.models.Eventos;
-import com.example.proyect.core.DataBase.services.DBManager;
+import com.example.proyect.app.ui.controller.Message;
+import com.example.proyect.core.database.models.Eventos;
+import com.example.proyect.core.database.services.DBManager;
 
 import java.sql.SQLException;
 import java.util.Objects;

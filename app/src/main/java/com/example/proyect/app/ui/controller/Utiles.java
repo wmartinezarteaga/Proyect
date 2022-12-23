@@ -1,4 +1,4 @@
-package com.example.proyect.app.ui.Controller;
+package com.example.proyect.app.ui.controller;
 
 import android.annotation.SuppressLint;
 import android.util.Log;

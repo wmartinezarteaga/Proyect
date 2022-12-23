@@ -4,16 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.proyect.R;
 import com.example.proyect.app.ui.views.evento.NewEvent;
 import com.example.proyect.app.ui.views.evento.ShowEvt;
-import com.example.proyect.core.DataBase.services.DBManager;
+import com.example.proyect.core.database.services.DBManager;
 
-import java.sql.SQLException;
 import java.util.Objects;
 
 public class MenuEventos extends AppCompatActivity {

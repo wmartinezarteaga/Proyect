@@ -6,8 +6,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyect.R;
-import com.example.proyect.app.ui.Controller.TabletDynamic;
-import com.example.proyect.core.DataBase.services.DBManager;
+import com.example.proyect.app.ui.controller.TabletDynamic;
+import com.example.proyect.core.database.services.DBManager;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

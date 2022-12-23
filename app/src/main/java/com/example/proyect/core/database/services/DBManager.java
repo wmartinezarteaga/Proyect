@@ -1,4 +1,4 @@
-package com.example.proyect.core.DataBase.services;
+package com.example.proyect.core.database.services;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.proyect.app.ui.Controller.Message;
-import com.example.proyect.core.DataBase.DataBaseHelper;
-import com.example.proyect.core.DataBase.models.Localizacion;
+import com.example.proyect.app.ui.controller.Message;
+import com.example.proyect.core.database.DataBaseHelper;
+import com.example.proyect.core.database.models.Localizacion;
 
 import java.sql.SQLException;
 

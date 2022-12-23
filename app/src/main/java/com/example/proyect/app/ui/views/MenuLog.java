@@ -11,11 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import com.example.proyect.app.ui.Controller.AdapterGeneralInformation;
-import com.example.proyect.app.ui.Controller.Message;
-import com.example.proyect.core.DataBase.models.Logs;
+import com.example.proyect.app.ui.controller.AdapterGeneralInformation;
+import com.example.proyect.app.ui.controller.Message;
+import com.example.proyect.core.database.models.Logs;
 import com.example.proyect.R;
 
 
