@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyect.R;
@@ -14,6 +15,7 @@ import com.example.proyect.app.ui.Controller.Message;
 import com.example.proyect.app.ui.Controller.ModelViewAdapter;
 import com.example.proyect.core.DataBase.models.Localizacion;
 import com.example.proyect.core.DataBase.services.DBManager;
+import com.example.proyect.core.DataBase.services.NotificationsServices;
 
 import java.sql.SQLException;
 import java.util.Objects;
@@ -25,8 +27,7 @@ import retrofit2.Response;
 public class InfoIpLocalizations extends AppCompatActivity  {
 
 
- private Button saved;
- private EditText data;
+    private EditText data;
  private Localizacion dataLocalizacion;
  private  DBManager base;
  private String ipSearh;
@@ -37,7 +38,7 @@ public class InfoIpLocalizations extends AppCompatActivity  {
         setContentView(R.layout.activity_info_ip_localizations);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Info del Ip");
         base = new DBManager(getBaseContext());
-        saved = findViewById(R.id.btnLocalSave);
+        Button saved = findViewById(R.id.btnLocalSave);
          data = findViewById(R.id.txtInfo);
 
         Intent ip = getIntent();
@@ -54,22 +55,27 @@ public class InfoIpLocalizations extends AppCompatActivity  {
 
     }
 
-
     public void getData(){
          Call<Localizacion>  call = ModelViewAdapter.getApiService().getModels(ipSearh);
          call.enqueue(new Callback<Localizacion>() {
              @Override
-             public void onResponse(Call<Localizacion> call, Response<Localizacion> response) {
+             public void onResponse(@NonNull Call<Localizacion> call, @NonNull Response<Localizacion> response) {
                  if(response.isSuccessful()){
                       dataLocalizacion = response.body();
 
                      String content = "";
+                     assert dataLocalizacion != null;
                      content = "Ip => "+dataLocalizacion.getQuery()+ "\n"+
                                "Pais => "+dataLocalizacion.getCountry() + "\n"+
                                "Ciudad => "+dataLocalizacion.getCity()+ "\n"+
                                "Region => "+dataLocalizacion.getRegionName()+ "\n"+
                                "Zona => "+dataLocalizacion.getTimezone()+ "\n";
                      data.setText(content);
+                 }
+                 if(dataLocalizacion.getCountry() == null){
+                     NotificationsServices.recordatorio(getBaseContext(),"Oops!!","Ip no encontrada");
+                 }else{
+                     NotificationsServices.recordatorio(getBaseContext(),"Genial!!"," Datos de la Ip " +ipSearh+" encontrada");
                  }
              }
 
